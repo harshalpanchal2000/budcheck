@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
   <title>Budget Expense Tracker</title>
   <link rel="preconnect" href="https://api.fontshare.com" />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
@@ -82,8 +82,13 @@
       min-height: 100vh;
       padding-bottom: max(96px, env(safe-area-inset-bottom));
     }
-    button, input, select { font: inherit; }
+    button, input, select, textarea { font: inherit; }
     button { cursor: pointer; }
+    /* iOS zoom fix: keep input fonts >=16px */
+    input, select, textarea {
+      font-size: 16px;
+    }
+
     .shell {
       max-width: 680px;
       margin: 0 auto;
