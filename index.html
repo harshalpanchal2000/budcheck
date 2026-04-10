@@ -104,8 +104,16 @@
       color: var(--color-primary);
       flex: 0 0 auto;
     }
-    .brand h1 { margin: 0; font-size: var(--text-lg); line-height: 1.1; }
-    .brand p { margin: 2px 0 0; color: var(--color-text-muted); font-size: var(--text-sm); }
+    .brand h1 {
+      margin: 0;
+      font-size: var(--text-lg);
+      line-height: 1.1;
+    }
+    .brand p {
+      margin: 2px 0 0;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
     .theme-toggle, .primary-btn, .secondary-btn, .danger-btn, .segmented button, .quick-chip, .delete-btn, .chip-btn {
       min-height: 44px;
       border-radius: var(--radius-md);
@@ -178,8 +186,14 @@
     }
     .income-text { color: var(--color-success); }
     .expense-text { color: var(--color-error); }
-    .section-title { margin: 0 0 var(--space-3); font-size: var(--text-lg); }
-    .entry-card, .chart-card, .list-card { padding: var(--space-4); margin-bottom: var(--space-4); }
+    .section-title {
+      margin: 0 0 var(--space-3);
+      font-size: var(--text-lg);
+    }
+    .entry-card, .chart-card, .list-card {
+      padding: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
     .segmented {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -215,14 +229,17 @@
       color: var(--color-primary);
       font-weight: 700;
     }
-    .form-grid { display: grid; gap: var(--space-3); }
+    .form-grid {
+      display: grid;
+      gap: var(--space-3);
+    }
     label {
       display: grid;
       gap: 6px;
       color: var(--color-text-muted);
       font-size: var(--text-sm);
     }
-    input, select {
+    input, select, textarea {
       min-height: 48px;
       border-radius: var(--radius-md);
       border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
@@ -231,54 +248,23 @@
       padding: 0 14px;
       outline: none;
     }
-    input:focus, select:focus {
+    input:focus, select:focus, textarea:focus {
       border-color: var(--color-primary);
       box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 16%, transparent);
     }
-    .button-row {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: var(--space-2);
+    .chart-wrap {
+      position: relative;
+      min-height: 280px;
+    }
+    .summary-line, .status-line {
       margin-top: var(--space-3);
-    }
-    .chart-tabs {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-2);
-      margin-bottom: var(--space-3);
-    }
-    .chart-tabs button {
-      min-height: 40px;
-      border-radius: var(--radius-md);
-      border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
-      background: var(--color-surface-2);
-      color: var(--color-text);
-    }
-    .chart-tabs button.active {
-      background: var(--color-primary-highlight);
-      color: var(--color-primary);
-      border-color: color-mix(in srgb, var(--color-primary) 28%, transparent);
-      font-weight: 700;
-    }
-    .chart-wrap { position: relative; min-height: 260px; }
-    .summary-line {
-      display: flex;
-      justify-content: space-between;
-      gap: var(--space-3);
-      margin-top: var(--space-3);
-      color: var(--color-text-muted);
       font-size: var(--text-sm);
-      flex-wrap: wrap;
+      color: var(--color-text-muted);
     }
-    .list-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .transaction-list {
+      display: grid;
       gap: var(--space-3);
-      margin-bottom: var(--space-3);
-      flex-wrap: wrap;
     }
-    .transaction-list { display: grid; gap: var(--space-3); }
     .transaction-item {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -303,16 +289,33 @@
       font-size: var(--text-xs);
       font-weight: 700;
     }
-    .badge.expense { background: color-mix(in srgb, var(--color-error) 14%, transparent); color: var(--color-error); }
-    .badge.income { background: color-mix(in srgb, var(--color-success) 16%, transparent); color: var(--color-success); }
-    .meta { font-size: var(--text-sm); color: var(--color-text-muted); }
+    .badge.expense {
+      background: color-mix(in srgb, var(--color-error) 14%, transparent);
+      color: var(--color-error);
+    }
+    .badge.income {
+      background: color-mix(in srgb, var(--color-success) 16%, transparent);
+      color: var(--color-success);
+    }
+    .meta {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
     .amount {
       font-weight: 700;
       font-variant-numeric: tabular-nums lining-nums;
       text-align: right;
     }
-    .delete-btn { min-width: 44px; padding: 0 12px; }
-    .empty { color: var(--color-text-muted); text-align: center; padding: var(--space-5); }
+    .delete-btn {
+      min-width: 44px;
+      padding: 0 12px;
+    }
+    .chip-row {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-top: var(--space-3);
+    }
     .bottom-bar {
       position: fixed;
       left: 0;
@@ -324,25 +327,44 @@
       border-top: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
     }
     .bottom-bar .inner {
-      max-width: 640px;
+      max-width: 680px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr auto auto;
       gap: var(--space-2);
       align-items: center;
     }
-    .bottom-total { font-size: var(--text-sm); color: var(--color-text-muted); }
+    .bottom-total {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
     .bottom-total strong {
       display: block;
       color: var(--color-text);
       font-size: var(--text-base);
     }
-    @media (max-width: 480px) {
-      .balance-grid { grid-template-columns: 1fr; }
-      .button-row, .bottom-bar .inner { grid-template-columns: 1fr; }
-      .theme-toggle { width: 44px; min-width: 44px; }
-      .transaction-item { grid-template-columns: 1fr; }
-      .amount { text-align: left; }
+    .empty {
+      color: var(--color-text-muted);
+      text-align: center;
+      padding: var(--space-5);
+    }
+    @media (max-width: 560px) {
+      .balance-grid {
+        grid-template-columns: 1fr;
+      }
+      .button-row, .bottom-bar .inner {
+        grid-template-columns: 1fr;
+      }
+      .theme-toggle {
+        width: 44px;
+        min-width: 44px;
+      }
+      .transaction-item {
+        grid-template-columns: 1fr;
+      }
+      .amount {
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -357,28 +379,20 @@
         </svg>
         <div>
           <h1>Budget Tracker</h1>
-          <p>Fast iPhone expense logging</p>
+          <p>iPhone app with on-device memory</p>
         </div>
       </div>
       <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme"></button>
     </header>
 
     <section class="hero">
-      <h2>Record charges in seconds</h2>
-      <p>Made for quick daily entries on your phone, with income and expense charts that keep the full .00 decimals visible.</p>
+      <h2>Store years of entries on your phone</h2>
+      <p>This version keeps your data in on-device browser storage and automatically trims anything older than 5 years.</p>
       <div class="balance-grid">
-        <div class="panel">
-          <div class="metric-label">Income</div>
-          <div class="metric-value income-text" id="totalIncome">$0.00</div>
-        </div>
-        <div class="panel">
-          <div class="metric-label">Spend</div>
-          <div class="metric-value expense-text" id="totalExpense">$0.00</div>
-        </div>
-        <div class="panel">
-          <div class="metric-label">Net</div>
-          <div class="metric-value" id="netBalance">$0.00</div>
-        </div>
+        <div class="panel"><div class="metric-label">Income</div><div class="metric-value income-text" id="totalIncome">$0.00</div></div>
+        <div class="panel"><div class="metric-label">Spend</div><div class="metric-value expense-text" id="totalExpense">$0.00</div></div>
+        <div class="panel"><div class="metric-label">Net</div><div class="metric-value" id="netBalance">$0.00</div></div>
+        <div class="panel"><div class="metric-label">Stored rows</div><div class="metric-value" id="storedRows">0</div></div>
       </div>
     </section>
 
@@ -407,10 +421,31 @@
           <select id="txCategory"></select>
         </label>
         <div class="button-row">
-          <button type="submit" class="primary-btn">Save charge</button>
-          <button type="button" class="secondary-btn" id="resetDataBtn">Reload sample</button>
+          <button type="submit" class="primary-btn">Save entry</button>
+          <button type="button" class="secondary-btn" id="addSalaryBtn">+ Salary</button>
         </div>
       </form>
+    </section>
+
+    <section class="storage-card">
+      <div class="meta-row">
+        <div>
+          <h3 class="section-title" style="margin-bottom:6px;">Storage</h3>
+          <p class="muted">Data stays on this device in the browser and is capped to the most recent 5 years.</p>
+        </div>
+        <div class="chip-row" style="margin-top:0;">
+          <button class="chip-btn" type="button" id="exportJsonBtn">Export JSON</button>
+          <button class="chip-btn" type="button" id="exportCsvBtn">Export CSV</button>
+        </div>
+      </div>
+      <div class="chip-row">
+        <label class="chip-btn" style="display:inline-flex; align-items:center; justify-content:center; padding:0 16px; cursor:pointer;">
+          Import JSON
+          <input type="file" id="importFile" accept="application/json" hidden />
+        </label>
+        <button class="danger-btn" type="button" id="clearDataBtn">Clear all data</button>
+      </div>
+      <div class="status-line" id="storageStatus">Storage ready.</div>
     </section>
 
     <section class="chart-card">
@@ -430,7 +465,7 @@
     <section class="list-card">
       <div class="list-header">
         <h3 class="section-title" style="margin:0;">Recent entries</h3>
-        <button type="button" class="secondary-btn" id="downloadBtn">Export CSV</button>
+        <button type="button" class="secondary-btn" id="focusFormBtn">Add entry</button>
       </div>
       <div class="transaction-list" id="transactionList"></div>
     </section>
@@ -439,12 +474,14 @@
   <div class="bottom-bar">
     <div class="inner">
       <div class="bottom-total">Top category<strong id="bottomTopCategory">—</strong></div>
-      <button class="secondary-btn" type="button" id="addSalaryBtn">+ Salary</button>
-      <button class="primary-btn" type="button" id="focusFormBtn">Add entry</button>
+      <button class="secondary-btn" type="button" id="reloadSampleBtn">Load sample</button>
+      <button class="primary-btn" type="button" id="scrollTopBtn">Quick add</button>
     </div>
   </div>
 
   <script>
+    const DB_NAME = 'budgetTrackerDB';
+    const STORE_NAME = 'transactions';
     const categories = [
       { key: 'grocery', label: 'Grocery', color: '#4f98a3' },
       { key: 'fixed cost', label: 'Fixed cost', color: '#d19900' },
@@ -454,19 +491,17 @@
     ];
 
     const sampleTransactions = [
-      { date: '2026-04-01', type: 'income', category: 'income', note: 'Salary', amount: 4200.00 },
-      { date: '2026-04-02', type: 'expense', category: 'fixed cost', note: 'Rent', amount: 1700.00 },
-      { date: '2026-04-03', type: 'expense', category: 'fixed cost', note: 'Utilities', amount: 128.50 },
-      { date: '2026-04-04', type: 'expense', category: 'grocery', note: 'Groceries', amount: 82.35 },
-      { date: '2026-04-05', type: 'expense', category: 'subscriptions', note: 'Netflix', amount: 16.99 },
-      { date: '2026-04-06', type: 'expense', category: 'eating out', note: 'Coffee', amount: 6.50 },
-      { date: '2026-04-07', type: 'expense', category: 'fixed cost', note: 'Phone bill', amount: 55.00 },
-      { date: '2026-04-08', type: 'expense', category: 'fixed cost', note: 'Tiffin cost', amount: 160.00 },
-      { date: '2026-04-09', type: 'expense', category: 'grocery', note: 'Fruit and milk', amount: 28.70 },
-      { date: '2026-04-10', type: 'expense', category: 'eating out', note: 'Lunch', amount: 17.25 }
+      { id: crypto.randomUUID(), date: '2026-04-01', type: 'income', category: 'income', note: 'Salary', amount: 4200.00, createdAt: new Date().toISOString() },
+      { id: crypto.randomUUID(), date: '2026-04-02', type: 'expense', category: 'fixed cost', note: 'Rent', amount: 1700.00, createdAt: new Date().toISOString() },
+      { id: crypto.randomUUID(), date: '2026-04-03', type: 'expense', category: 'fixed cost', note: 'Utilities', amount: 128.50, createdAt: new Date().toISOString() },
+      { id: crypto.randomUUID(), date: '2026-04-04', type: 'expense', category: 'grocery', note: 'Groceries', amount: 82.35, createdAt: new Date().toISOString() },
+      { id: crypto.randomUUID(), date: '2026-04-05', type: 'expense', category: 'subscriptions', note: 'Netflix', amount: 16.99, createdAt: new Date().toISOString() },
+      { id: crypto.randomUUID(), date: '2026-04-06', type: 'expense', category: 'eating out', note: 'Coffee', amount: 6.50, createdAt: new Date().toISOString() },
+      { id: crypto.randomUUID(), date: '2026-04-07', type: 'expense', category: 'fixed cost', note: 'Phone bill', amount: 55.00, createdAt: new Date().toISOString() }
     ];
 
-    let transactions = structuredClone(sampleTransactions);
+    let db;
+    let transactions = [];
     let selectedType = 'expense';
     let selectedCategory = 'grocery';
     let activeRange = 'daily';
@@ -479,8 +514,74 @@
       maximumFractionDigits: 2
     });
 
+    function getCutoffDate() {
+      const cutoff = new Date();
+      cutoff.setFullYear(cutoff.getFullYear() - 5);
+      return cutoff.toISOString().slice(0, 10);
+    }
+
     function getThemeValue(name) {
       return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
+    function setStatus(text) {
+      document.getElementById('storageStatus').textContent = text;
+    }
+
+    function openDb() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, 1);
+        request.onupgradeneeded = () => {
+          const database = request.result;
+          const store = database.createObjectStore(STORE_NAME, { keyPath: 'id' });
+          store.createIndex('date', 'date', { unique: false });
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    function txStore(mode = 'readonly') {
+      return db.transaction(STORE_NAME, mode).objectStore(STORE_NAME);
+    }
+
+    function getAllEntries() {
+      return new Promise((resolve, reject) => {
+        const request = txStore().getAll();
+        request.onsuccess = () => resolve(request.result || []);
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    function putEntry(entry) {
+      return new Promise((resolve, reject) => {
+        const request = txStore('readwrite').put(entry);
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    function deleteEntry(id) {
+      return new Promise((resolve, reject) => {
+        const request = txStore('readwrite').delete(id);
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    async function clearAllEntries() {
+      return new Promise((resolve, reject) => {
+        const request = txStore('readwrite').clear();
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    async function trimOldData() {
+      const cutoff = getCutoffDate();
+      const all = await getAllEntries();
+      const outdated = all.filter(item => item.date < cutoff);
+      await Promise.all(outdated.map(item => deleteEntry(item.id)));
+      if (outdated.length) setStatus(`Removed ${outdated.length} entries older than ${cutoff}.`);
     }
 
     function setThemeIcon() {
@@ -569,6 +670,7 @@
       const netEl = document.getElementById('netBalance');
       netEl.textContent = money.format(net);
       netEl.className = 'metric-value ' + (net >= 0 ? 'income-text' : 'expense-text');
+      document.getElementById('storedRows').textContent = String(transactions.length);
       document.getElementById('topCategoryText').textContent = top ? `Top expense: ${top.label} ${money.format(top.total)}` : 'Top expense: —';
       document.getElementById('bottomTopCategory').textContent = top ? `${top.label} · ${money.format(top.total)}` : '—';
     }
@@ -581,7 +683,7 @@
         wrap.innerHTML = '<div class="empty">No entries yet</div>';
         return;
       }
-      sorted.forEach((tx, index) => {
+      sorted.forEach(tx => {
         const item = document.createElement('div');
         item.className = 'transaction-item';
         item.innerHTML = `
@@ -594,17 +696,18 @@
           </div>
           <div style="display:grid; justify-items:end; gap:8px;">
             <div class="amount ${tx.type === 'income' ? 'income-text' : 'expense-text'}">${tx.type === 'income' ? '+' : '-'}${money.format(Number(tx.amount))}</div>
-            <button class="delete-btn" type="button" data-index="${index}">Delete</button>
+            <button class="delete-btn" type="button" data-id="${tx.id}">Delete</button>
           </div>
         `;
         wrap.appendChild(item);
       });
-      wrap.querySelectorAll('.delete-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          transactions.splice(Number(btn.dataset.index), 1);
-          refreshAll();
-        });
-      });
+      wrap.querySelectorAll('.delete-btn').forEach(btn =>
+        btn.addEventListener('click', async () => {
+          await deleteEntry(btn.dataset.id);
+          await loadTransactions();
+          setStatus('Entry deleted.');
+        })
+      );
     }
 
     function renderChart() {
@@ -621,9 +724,8 @@
       const labels = rows.map(([key]) => labelForRange(key, activeRange));
       const incomeData = rows.map(([,value]) => value.income);
       const expenseData = rows.map(([,value]) => value.expense);
-      const ctx = document.getElementById('summaryChart');
       if (summaryChart) summaryChart.destroy();
-      summaryChart = new Chart(ctx, {
+      summaryChart = new Chart(document.getElementById('summaryChart'), {
         type: activeRange === 'daily' ? 'line' : 'bar',
         data: {
           labels,
@@ -655,55 +757,129 @@
           maintainAspectRatio: false,
           interaction: { mode: 'index', intersect: false },
           plugins: {
-            legend: { labels: { color: colors.text, usePointStyle: true, boxWidth: 10, font: { family: 'Satoshi' } } },
+            legend: {
+              labels: {
+                color: colors.text,
+                usePointStyle: true,
+                boxWidth: 10,
+                font: { family: 'Satoshi' }
+              }
+            },
             tooltip: {
               backgroundColor: document.documentElement.getAttribute('data-theme') === 'dark' ? '#201f1d' : '#fffdf8',
               titleColor: colors.text,
               bodyColor: colors.text,
               borderColor: colors.divider,
               borderWidth: 1,
-              callbacks: { label: (ctx) => `${ctx.dataset.label}: ${money.format(ctx.parsed.y)}` }
+              callbacks: {
+                label: (ctx) => `${ctx.dataset.label}: ${money.format(ctx.parsed.y)}`
+              }
             }
           },
           scales: {
-            x: { ticks: { color: colors.muted }, grid: { display: false } },
-            y: { ticks: { color: colors.muted, callback: (value) => money.format(value) }, grid: { color: colors.divider } }
+            x: {
+              ticks: { color: colors.muted },
+              grid: { display: false }
+            },
+            y: {
+              ticks: {
+                color: colors.muted,
+                callback: (value) => money.format(value)
+              },
+              grid: { color: colors.divider }
+            }
           }
         }
       });
       document.getElementById('rangeLabel').textContent = `${activeRange.charAt(0).toUpperCase() + activeRange.slice(1)} income vs spend`;
-      document.querySelectorAll('[data-range]').forEach(btn => btn.classList.toggle('active', btn.dataset.range === activeRange));
+      document.querySelectorAll('[data-range]').forEach(btn =>
+        btn.classList.toggle('active', btn.dataset.range === activeRange)
+      );
     }
 
-    function refreshAll() {
+    async function loadTransactions() {
+      await trimOldData();
+      transactions = await getAllEntries();
+      transactions.sort((a,b) => a.date.localeCompare(b.date));
       renderSummary();
       renderList();
       renderChart();
     }
 
-    document.getElementById('transactionForm').addEventListener('submit', (e) => {
+    async function addEntry(entry) {
+      await putEntry(entry);
+      await loadTransactions();
+    }
+
+    function exportFile(filename, text, type) {
+      const blob = new Blob([text], { type });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    async function seedIfEmpty() {
+      const all = await getAllEntries();
+      if (all.length === 0) {
+        for (const row of sampleTransactions) await putEntry(row);
+        setStatus('Sample data loaded.');
+      }
+    }
+
+    async function init() {
+      try {
+        db = await openDb();
+        await seedIfEmpty();
+        await loadTransactions();
+        setStatus(`Ready. Keeping entries from ${getCutoffDate()} onward.`);
+      } catch (error) {
+        setStatus('Storage could not be initialized on this browser.');
+      }
+    }
+
+    document.getElementById('transactionForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const amount = Number(document.getElementById('txAmount').value);
       const date = document.getElementById('txDate').value;
       const note = document.getElementById('txNote').value.trim();
       if (!amount || !date) return;
-      transactions.push({
+      await addEntry({
+        id: crypto.randomUUID(),
         date,
         type: selectedType,
         category: selectedType === 'income' ? 'income' : document.getElementById('txCategory').value,
         note,
-        amount: Number(amount.toFixed(2))
+        amount: Number(amount.toFixed(2)),
+        createdAt: new Date().toISOString()
       });
       e.target.reset();
       document.getElementById('txDate').value = new Date().toISOString().slice(0, 10);
       setType('expense');
-      refreshAll();
       document.getElementById('txAmount').focus();
+      setStatus('Entry saved to device storage.');
     });
 
-    document.getElementById('resetDataBtn').addEventListener('click', () => {
-      transactions = structuredClone(sampleTransactions);
-      refreshAll();
+    document.getElementById('addSalaryBtn').addEventListener('click', async () => {
+      const today = new Date().toISOString().slice(0, 10);
+      await addEntry({
+        id: crypto.randomUUID(),
+        date: today,
+        type: 'income',
+        category: 'income',
+        note: 'Salary',
+        amount: 4200.00,
+        createdAt: new Date().toISOString()
+      });
+      setStatus('Salary saved.');
+    });
+
+    document.getElementById('reloadSampleBtn').addEventListener('click', async () => {
+      for (const row of sampleTransactions) await putEntry({ ...row, id: crypto.randomUUID() });
+      await loadTransactions();
+      setStatus('Sample entries added.');
     });
 
     document.getElementById('focusFormBtn').addEventListener('click', () => {
@@ -711,27 +887,64 @@
       document.getElementById('txAmount').focus();
     });
 
-    document.getElementById('addSalaryBtn').addEventListener('click', () => {
-      const today = new Date().toISOString().slice(0, 10);
-      transactions.push({ date: today, type: 'income', category: 'income', note: 'Salary', amount: 4200.00 });
-      refreshAll();
+    document.getElementById('scrollTopBtn').addEventListener('click', () => {
+      document.getElementById('entrySection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('txAmount').focus();
     });
 
-    document.getElementById('downloadBtn').addEventListener('click', () => {
-      const rows = [['date','type','category','note','amount'], ...transactions.map(tx => [
-        tx.date,
-        tx.type,
-        tx.category,
-        (tx.note || '').replace(/,/g, ' '),
-        Number(tx.amount).toFixed(2)
-      ])];
-      const blob = new Blob([rows.map(r => r.join(',')).join('\n')], { type: 'text/csv;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'budget-transactions.csv';
-      a.click();
-      URL.revokeObjectURL(url);
+    document.getElementById('exportCsvBtn').addEventListener('click', () => {
+      const rows = [['date','type','category','note','amount','createdAt'],
+        ...transactions.map(tx => [
+          tx.date,
+          tx.type,
+          tx.category,
+          (tx.note || '').replace(/,/g, ' '),
+          Number(tx.amount).toFixed(2),
+          tx.createdAt || ''
+        ])
+      ];
+      exportFile('budget-transactions.csv', rows.map(r => r.join(',')).join('\n'), 'text/csv;charset=utf-8');
+      setStatus('CSV exported.');
+    });
+
+    document.getElementById('exportJsonBtn').addEventListener('click', () => {
+      exportFile('budget-transactions.json', JSON.stringify(transactions, null, 2), 'application/json');
+      setStatus('JSON backup exported.');
+    });
+
+    document.getElementById('importFile').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const text = await file.text();
+      try {
+        const parsed = JSON.parse(text);
+        if (!Array.isArray(parsed)) throw new Error('Invalid format');
+        for (const row of parsed) {
+          const normalized = {
+            id: row.id || crypto.randomUUID(),
+            date: String(row.date).slice(0, 10),
+            type: row.type === 'income' ? 'income' : 'expense',
+            category: row.type === 'income' ? 'income' : (row.category || 'grocery'),
+            note: row.note || '',
+            amount: Number(Number(row.amount || 0).toFixed(2)),
+            createdAt: row.createdAt || new Date().toISOString()
+          };
+          if (normalized.date && normalized.amount > 0) await putEntry(normalized);
+        }
+        await loadTransactions();
+        setStatus('JSON import completed.');
+      } catch {
+        setStatus('Import failed. Use a JSON backup exported from this app.');
+      }
+      e.target.value = '';
+    });
+
+    document.getElementById('clearDataBtn').addEventListener('click', async () => {
+      const ok = confirm('Delete all stored transactions from this device?');
+      if (!ok) return;
+      await clearAllEntries();
+      await loadTransactions();
+      setStatus('All device data cleared.');
     });
 
     document.querySelectorAll('[data-type-btn]').forEach(btn =>
@@ -752,7 +965,7 @@
     setThemeIcon();
     document.getElementById('txDate').value = new Date().toISOString().slice(0, 10);
     setType('expense');
-    refreshAll();
+    init();
   </script>
 </body>
 </html>
